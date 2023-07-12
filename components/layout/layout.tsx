@@ -10,15 +10,25 @@ export const Layout = ({
   rawData = {},
   data = layoutData,
   children,
+  metaData = {},
 }: {
   rawData?: object;
   data?: Omit<Global, "id" | "_sys" | "_values">;
   children: React.ReactNode;
+  metaData?: {
+    title?: string;
+    description?: string;
+  };
 }) => {
+  console.log(rawData);
   return (
     <>
       <Head>
-        <title>Tina</title>
+        <title>{metaData.title ?? 'Inforca'}</title>
+        <meta
+          name="description"
+          content={metaData.description ?? "Inforca"}
+        />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         {data.theme.font === "nunito" && (
           <>

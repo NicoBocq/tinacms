@@ -2,8 +2,8 @@
   "header": {
     "icon": {
       "name": "Tina",
-      "color": "orange",
-      "style": "float"
+      "color": "red",
+      "style": "circle"
     },
     "name": "Inforca",
     "color": "default",

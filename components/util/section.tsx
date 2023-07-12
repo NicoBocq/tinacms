@@ -1,5 +1,6 @@
 import React from "react";
 import { useTheme } from "../layout";
+import clsx from "clsx";
 
 export const Section = ({ children, color = "", className = "" }) => {
   const theme = useTheme();
@@ -31,7 +32,11 @@ export const Section = ({ children, color = "", className = "" }) => {
 
   return (
     <section
-      className={`flex-1 relative transition duration-150 ease-out body-font overflow-hidden ${sectionColorCss} ${className}`}
+      className={clsx(
+        'flex-1 relative transition duration-150 ease-out body-font overflow-hidden',
+        sectionColorCss,
+        className
+      )}
     >
       {children}
     </section>

@@ -11,7 +11,10 @@ export default function HomePage(
   const jobs = props.data.jobConnection.edges;
 
   return (
-    <Layout>
+    <Layout metaData={{
+      title: "Jobs at inforca",
+      description: "Jobs at Inforca",
+    }}>
       <Section className="flex-1">
         <Container size="large" width="small">
           <Jobs data={jobs} />

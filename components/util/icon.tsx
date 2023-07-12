@@ -3,6 +3,7 @@ import { ColorPickerInput } from "../../tina/fields/color";
 import { IconPickerInput } from "../../tina/fields/icon";
 import { useTheme } from "../layout";
 import * as BoxIcons from "react-icons/bi";
+import clsx from "clsx";
 
 export const IconOptions = {
   Tina: (props) => (
@@ -107,7 +108,12 @@ export const Icon = ({
     return (
       <div
         data-tina-field={tinaField}
-        className={`relative z-10 inline-flex items-center justify-center flex-shrink-0 ${iconSizeClasses} rounded-full ${iconColorClass[iconColor].circle} ${className}`}
+        className={
+          clsx('relative z-10 inline-flex items-center justify-center flex-shrink-0 rounded-full',
+          iconSizeClasses,
+          iconColorClass[iconColor].circle,
+          className
+        )}
       >
         <IconSVG className="w-2/3 h-2/3" />
       </div>
