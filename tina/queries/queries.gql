@@ -18,6 +18,20 @@ query pageQuery {
       }
     }
   }
+  jobConnection {
+    edges {
+      node {
+        id
+        title
+        company
+        location
+        description
+        _sys {
+          filename
+        }
+      }
+    }
+  }
 }
 
 query contentQuery($relativePath: String!) {
@@ -37,5 +51,12 @@ query blogPostQuery($relativePath: String!) {
         avatar
       }
     }
+  }
+}
+
+query jobItemQuery($relativePath: String!) {
+  ...LayoutQueryFragment
+  job(relativePath: $relativePath) {
+    ...JobParts
   }
 }

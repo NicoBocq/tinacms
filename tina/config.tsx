@@ -7,7 +7,7 @@ import { ColorPickerInput } from "./fields/color";
 import { iconSchema } from "../components/util/icon";
 
 const config = defineConfig({
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!,
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID as string,
   branch:
     process.env.NEXT_PUBLIC_TINA_BRANCH! || // custom branch env override
     process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF! || // Vercel branch env
@@ -142,6 +142,61 @@ const config = defineConfig({
               },
             ],
             isBody: true,
+          },
+        ],
+      },
+      {
+        label: "Jobs",
+        name: "job",
+        path: "content/jobs",
+        format: "mdx",
+        ui: {
+          router: ({ document }) => {
+            return `/jobs/${document._sys.filename}`;
+          }
+        },
+        fields: [
+          {
+            type: "string",
+            label: "Title",
+            name: "title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            label: "Location",
+            name: "location",
+          },
+          {
+            type: "string",
+            label: "Company",
+            name: "company",
+          },
+          {
+            type: "string",
+            label: "Type",
+            name: "type",
+            field: "select",
+            options: [
+              { label: "Full Time", value: "full-time" },
+              { label: "Part Time", value: "part-time" },
+            ],
+          },
+          {
+            type: "string",
+            label: "Excerpt",
+            name: "excerpt",
+          },
+          {
+            type: "rich-text",
+            label: "Description",
+            name: "description",
+          },
+          {
+            type: "string",
+            label: "Apply Link",
+            name: "applyLink",
           },
         ],
       },

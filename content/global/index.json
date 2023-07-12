@@ -5,12 +5,16 @@
       "color": "orange",
       "style": "float"
     },
-    "name": "Tina Starter",
+    "name": "Inforca",
     "color": "default",
     "nav": [
       {
-        "href": "",
+        "href": "home",
         "label": "Home"
+      },
+      {
+        "href": "jobs",
+        "label": "Jobs"
       },
       {
         "href": "about",
